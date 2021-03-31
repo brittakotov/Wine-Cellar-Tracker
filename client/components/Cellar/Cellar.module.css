@@ -1,0 +1,9 @@
+.heading {
+  font-size: 25px;
+}
+
+.cellarContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

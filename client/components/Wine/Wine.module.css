@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+}
+
+.vintage, .brand, .name {
+  margin-right: 5px;
+}
