@@ -15,9 +15,15 @@ class App extends React.Component {
     }
     this.handleMoved = this.handleMoved.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleAddWine = this.handleAddWine.bind(this);
+    this.getWines = this.getWines.bind(this);
   }
 
   componentDidMount() {
+    this.getWines()
+  }
+
+  getWines() {
     axios.get('/wines')
     .then((res) => {
      this.setState({
@@ -42,10 +48,20 @@ class App extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault();
     this.setState({
-      clicked: true
+      clicked: !this.state.clicked
     })
+  }
+
+  handleAddWine(params) {
+    axios.post('/wine', params)
+    .then(function (response) {
+      console.log('successfully posted wine from app');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    this.getWines();
   }
 
   render() {
@@ -73,7 +89,7 @@ class App extends React.Component {
             <div className={styles.buttons}>
               <button className={styles.button} onClick={this.handleClick}>Add Wine</button>
               <div>
-                {this.state.clicked ? <AddWine /> : null}
+                {this.state.clicked ? <AddWine handleAddWine={this.handleAddWine} handleClick={this.handleClick}/> : null}
               </div>
               <div className={styles.search}>
                 <SearchBar wines={wineList} handleMoved={this.handleMoved}/>
