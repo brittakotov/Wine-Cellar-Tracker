@@ -2,9 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import WineList from '../WineList/WineList.jsx'
 import Cellar from '../Cellar/Cellar.jsx'
-import styles from './App.module.css'
 import SearchBar from '../SearchBar/SearchBar.jsx'
 import AddWine from '../AddWine/AddWine.jsx'
+import styles from './App.module.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,13 +15,11 @@ class App extends React.Component {
     }
     this.handleMoved = this.handleMoved.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    // this.getPairings = this.getPairings.bind(this);
   }
 
   componentDidMount() {
     axios.get('/wines')
     .then((res) => {
-      console.log(res)
      this.setState({
        wines: res.data
      })
@@ -50,36 +48,17 @@ class App extends React.Component {
     })
   }
 
-  // getPairings(wine) {
-  //   axios.get('/pairings', {
-  //     params: {
-  //       wineName: wine
-  //     }
-  //   })
-  //   .then((res) => {
-  //     console.log(res)
-  //    this.setState({
-  //      pairings: res.data
-  //    })
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  // }
-
   render() {
     var wineList = [];
     var cellar = [];
-    var wines = this.state.wines
+    var wines = this.state.wines;
     wines.forEach((wine) => {
-      console.log(wine)
       if (wine.inCellar !== undefined) {
         cellar.push(wine);
       } else {
         wineList.push(wine);
       }
     })
-
 
     return (
       <div className={styles.container}>

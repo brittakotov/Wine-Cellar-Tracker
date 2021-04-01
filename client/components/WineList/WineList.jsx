@@ -2,15 +2,15 @@ import React from 'react';
 import Wine from '../Wine/Wine.jsx'
 import styles from './WineList.module.css'
 
-const WineList = (props) => {
+const WineList = ({wines, handleMoved}) => {
 
   return (
     <div>
       <div className={styles.header}>Wine List:</div>
-      {props.wines.map(wine => {
+      {wines.map((wine, i) => {
         return (
          <div>
-           <Wine wine={wine} wines={props.wines} handleMoved={props.handleMoved}/>
+           <Wine  wine={wine} wines={wines} handleMoved={handleMoved} key={i}/>
          </div>
         )
       })}

@@ -3,8 +3,8 @@ import styles from './CellarWine.module.css'
 import DetailView from '../DetailView/DetailView.jsx'
 
 class CellarWine extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       selected: false
     }
@@ -19,13 +19,13 @@ class CellarWine extends React.Component {
   }
 
   render() {
-    console.log(this.state.selected)
+    const {wine} = this.props;
     return (
       <div className={styles.container} onClick={this.selected}>
-        <img className={styles.image} src={this.props.wine.photo}></img>
-        <div>{this.props.wine.vintage} {this.props.wine.name}</div>
-        <div>{this.props.wine.brand}</div>
-        {this.state.selected ? <DetailView wine={this.props.wine} selected={this.selected}/> : null}
+        <img className={styles.image} src={wine.photo}></img>
+        <div>{wine.vintage} {wine.name}</div>
+        <div>{wine.brand}</div>
+        {this.state.selected ? <DetailView wine={wine} selected={this.selected}/> : null}
       </div>
     )
   }

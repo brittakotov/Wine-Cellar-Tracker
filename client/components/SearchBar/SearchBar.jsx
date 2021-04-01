@@ -2,14 +2,14 @@ import * as React from 'react'
 import Downshift from 'downshift'
 
 
-const SearchBar = (props) => {
+const SearchBar = ({wines, handleMoved}) => {
 
-  const items = props.wines;
+  const items = wines;
 
     return (
       <Downshift
         onChange={selection =>
-          props.handleMoved(selection.id)
+          handleMoved(selection.id)
 
         }
         itemToString={item => (item ? item.brand : '')}
@@ -47,7 +47,9 @@ const SearchBar = (props) => {
                           item,
                           style: {
                             backgroundColor:
-                              highlightedIndex === index ? 'lightgray' : 'white',
+                              highlightedIndex === index ? 'white' : 'lightgray',
+                              border: '1px solid black',
+                              height: '30px',
                             fontWeight: selectedItem === item ? 'bold' : 'normal',
                             position: 'relative'
                           },
