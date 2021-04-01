@@ -1,7 +1,13 @@
 .container {
   display: flex;
+  transition: all .2s ease-in-out;
 }
 
 .vintage, .brand, .name {
   margin-right: 5px;
+}
+
+.container:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }

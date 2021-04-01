@@ -1,0 +1,127 @@
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.modalmain {
+  position:fixed;
+  background: white;
+  width: 45%;
+  height: 65%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  max-height: 100vh;
+  overflow-y: auto;
+  font-family: Helvetica;
+  font-size: 16px;
+  padding-left: 50px;
+  padding-right: 30px;
+  padding-top: 10px;
+  border-radius: 4px;
+  display:flex;
+  flex-direction: column;
+  text-align: left;
+
+}
+
+.image {
+  height: 550px;
+  margin-top: -100px;
+}
+
+.columns {
+  display: flex;
+  /* justify-content: space-between; */
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
+  padding-top:50px;
+  margin-left: 70px;
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .columns {
+    flex-direction: column;
+  }
+  .modalmain {
+    width: 100%;
+    height: 100%;
+  }
+  .image {
+    height: 80%;
+  }
+  .info {
+    margin-left: 5px;
+  }
+}
+
+.brand {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.vintage {
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+}
+
+.name {
+  font-size: 35px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.appContainer, .blendContainer, .priceContainer, .contentContainer {
+  display:flex;
+}
+
+.app, .price, .content {
+  font-weight: bold;
+  margin-right: 5px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.blendTitle {
+  font-weight: bold;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.blend {
+  margin-bottom: 20px;
+}
+
+.pairingsTitle {
+  font-weight: bold;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.pairings {
+  margin-top: 5px;
+}
+
+.closeButton {
+  text-align: right;
+  font-size: 30px;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}
+

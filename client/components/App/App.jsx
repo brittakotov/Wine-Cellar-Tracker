@@ -10,9 +10,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      wines: []
+      wines: [],
+      clicked: false
     }
     this.handleMoved = this.handleMoved.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    // this.getPairings = this.getPairings.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +43,29 @@ class App extends React.Component {
     })
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    this.setState({
+      clicked: true
+    })
+  }
+
+  // getPairings(wine) {
+  //   axios.get('/pairings', {
+  //     params: {
+  //       wineName: wine
+  //     }
+  //   })
+  //   .then((res) => {
+  //     console.log(res)
+  //    this.setState({
+  //      pairings: res.data
+  //    })
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  // }
 
   render() {
     var wineList = [];
@@ -66,10 +92,10 @@ class App extends React.Component {
           </div>
           <div className={styles.wineListContainer}>
             <div className={styles.buttons}>
-              <button className={styles.button}>Add Wine</button>
-              {/* <div>
+              <button className={styles.button} onClick={this.handleClick}>Add Wine</button>
+              <div>
                 {this.state.clicked ? <AddWine /> : null}
-              </div> */}
+              </div>
               <div className={styles.search}>
                 <SearchBar wines={wineList} handleMoved={this.handleMoved}/>
               </div>

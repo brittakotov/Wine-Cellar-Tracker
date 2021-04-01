@@ -14,5 +14,6 @@ CREATE TABLE cellar (
   place VARCHAR(60) NOT NULL,
   price INT(4) NOT NULL,
   alcohol DECIMAL(4,2) NOT NULL,
-  photo VARCHAR(300) NOT NULL
+  photo VARCHAR(300) NOT NULL,
+  searchName VARCHAR(50) NOT NULL
 );

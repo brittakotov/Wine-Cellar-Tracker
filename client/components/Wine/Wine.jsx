@@ -14,6 +14,7 @@ class Wine extends React.Component {
   }
 
   render() {
+
     return (
       <div className={styles.container} id={this.props.wine.id} onClick={this.moveWine}>
         <div className={styles.vintage} id={this.props.wine.id}>{this.props.wine.vintage}</div>
@@ -25,3 +26,4 @@ class Wine extends React.Component {
 }
 
 export default Wine;
+

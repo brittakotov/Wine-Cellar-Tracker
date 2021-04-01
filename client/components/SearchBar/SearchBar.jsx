@@ -12,7 +12,7 @@ const SearchBar = (props) => {
           props.handleMoved(selection.id)
 
         }
-        itemToString={item => (item ? item.name : '')}
+        itemToString={item => (item ? item.brand : '')}
       >
         {({
           getInputProps,
@@ -38,21 +38,22 @@ const SearchBar = (props) => {
             <div {...getMenuProps()}>
               {isOpen
                 ? items
-                    .filter(item => !inputValue || item.name.includes(inputValue))
+                    .filter(item => !inputValue || item.brand.includes(inputValue))
                     .map((item, index) => (
                       <div
                         {...getItemProps({
-                          key: item.value,
+                          key: item.id,
                           index,
                           item,
                           style: {
                             backgroundColor:
                               highlightedIndex === index ? 'lightgray' : 'white',
                             fontWeight: selectedItem === item ? 'bold' : 'normal',
+                            position: 'relative'
                           },
                         })}
                       >
-                        {item.name}
+                        {item.brand} {item.name} {item.vintage}
                       </div>
                     ))
                 : null}

@@ -1,8 +1,15 @@
 .container {
   width: 215px;
   margin-left: 20px;
+  text-align: center;
+  transition: border 2s;
 }
 
 .image {
   height: 200px;
+}
+
+.container:hover {
+  border: 1px solid black;
+  cursor: pointer;
 }

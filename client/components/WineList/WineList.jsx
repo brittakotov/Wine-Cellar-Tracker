@@ -10,7 +10,7 @@ const WineList = (props) => {
       {props.wines.map(wine => {
         return (
          <div>
-           <Wine wine={wine} handleMoved={props.handleMoved}/>
+           <Wine wine={wine} wines={props.wines} handleMoved={props.handleMoved}/>
          </div>
         )
       })}
