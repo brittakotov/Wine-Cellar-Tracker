@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Downshift from 'downshift'
 
-
 const SearchBar = ({wines, handleMoved}) => {
 
   const items = wines;

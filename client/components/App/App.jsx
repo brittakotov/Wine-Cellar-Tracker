@@ -7,8 +7,8 @@ import AddWine from '../AddWine/AddWine.jsx'
 import styles from './App.module.css'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       wines: [],
       clicked: false

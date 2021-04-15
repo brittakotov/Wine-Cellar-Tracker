@@ -2,7 +2,8 @@
   width: 215px;
   margin-left: 20px;
   text-align: center;
-  transition: border 2s;
+  transition: border 0.5s;
+  border: 1px solid white;
 }
 
 .image {

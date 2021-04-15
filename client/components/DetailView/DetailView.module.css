@@ -28,7 +28,6 @@
   display:flex;
   flex-direction: column;
   text-align: left;
-
 }
 
 .image {
@@ -62,6 +61,12 @@
   .info {
     margin-left: 5px;
   }
+  .brand {
+    height: 100px;
+  }
+  .vintage {
+    height: 100px;
+  }
 }
 
 .brand {
@@ -82,7 +87,6 @@
   text-align: center;
   margin-bottom: 20px;
 }
-
 
 .appContainer, .blendContainer, .priceContainer, .contentContainer {
   display:flex;

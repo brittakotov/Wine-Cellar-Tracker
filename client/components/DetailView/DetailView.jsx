@@ -10,26 +10,26 @@ class DetailView extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   axios.get('/pairings/', {
-  //     params: {
-  //       wineName: this.props.wine.searchName
-  //     }
-  //   })
-  //   .then((res) => {
-  //     this.setState({
-  //       pairings: res.data.text
-  //     })
-  //     if (!res.data.text) {
-  //       this.setState({
-  //         pairings: 'N/A'
-  //       })
-  //     }
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  // }
+  componentDidMount() {
+    axios.get('/pairings/', {
+      params: {
+        wineName: this.props.wine.searchName
+      }
+    })
+    .then((res) => {
+      this.setState({
+        pairings: res.data.text
+      })
+      if (!res.data.text) {
+        this.setState({
+          pairings: 'N/A'
+        })
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
 
   render() {
     const {wine, selected} = this.props;

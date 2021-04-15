@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './AddWine.module.css'
-//import CalendarSample from '../Calendar/Calendar.jsx';
 
 class AddWine extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       brand: '',
       name: '',
@@ -48,52 +47,29 @@ class AddWine extends React.Component {
       alcohol: Number(this.state.alcohol),
       photo: this.state.photo
     }
-    this.props.handleAddWine(params);
-    this.props.handleClick();
+    handleAddWine(params);
+    handleClick();
   }
 
   render() {
+    console.log(this.state)
+    const {handleAddWine, handleClick} = this.props;
+    const inputs = ['brand', 'name', 'blend', 'vintage', 'price', 'place', 'alcohol']
     return (
       <div className={styles.modal}>
         <div className={styles.modalmain}>
-          <div className={styles.closeButton} onClick={this.props.handleClick}>X</div>
+          <div className={styles.closeButton} onClick={handleClick}>X</div>
           <div className={styles.title}>Add a Wine</div>
           <form id='formSubmit' className={styles.form} onSubmit={this.handleSubmit}>
-            <div className={styles.child}>
-              <label> Brand
-                <textarea className={styles.text} id="brand" type="text" name="brand" maxLength="60" placeholder="ex. J. Lohr" value={this.state.brand} onChange={this.handleInput} required></textarea>
-              </label>
-            </div>
-            <div className={styles.child}>
-              <label> Name
-                <textarea className={styles.text} id="name" type="text" name="name" maxLength="60" placeholder="ex. Pinot Noir" value={this.state.name} onChange={this.handleInput} required></textarea>
-              </label>
-            </div>
-            <div className={styles.child}>
-              <label > Blend
-                <textarea className={styles.text} id="blend" type="text" name="blend" maxLength="60" placeholder="ex. 100% Syrah" value={this.state.blend} onChange={this.handleInput} required></textarea>
-              </label>
-            </div>
-            <div className={styles.child}>
-              <label> Vintage
-                <textarea className={styles.text} id="name" type="number" name="vintage" maxLength="4" placeholder="Ex. 2018" value={this.state.vintage} onChange={this.handleInput} required></textarea>
-              </label>
-            </div>
-            <div className={styles.child}>
-              <label> Price
-                <textarea className={styles.text} id="price" type="number" name="price" maxLength="4" placeholder="ex. 35" value={this.state.price} onChange={this.handleInput} required></textarea>
-              </label>
-            </div>
-            <div className={styles.child}>
-              <label> Place
-                <textarea className={styles.text} id="place" type="text" name="place" maxLength="60" placeholder="ex. Napa Valley" value={this.state.place} onChange={this.handleInput} required></textarea>
-              </label>
-            </div>
-            <div className={styles.child}>
-              <label> Alcohol Content
-                <textarea className={styles.text} id="alcohol" type="number" name="alcohol" maxLength="5" placeholder="ex. 13.4" value={this.state.alcohol} onChange={this.handleInput} required></textarea>
-              </label>
-            </div>
+            {inputs.map((input) => {
+              return (
+                <div className={styles.child}>
+                  <label> {input}:
+                    <textarea className={styles.text} type="text" name={input} maxLength="60" value={this.state.input} onChange={this.handleInput} required></textarea>
+                  </label>
+                </div>
+              )
+            })}
             <div className={styles.child}>
               <label> Upload Photo
                 <input  id="alcohol" type="file" name="photo"  accept="image/*" src={this.state.photo} onChange={this.onImageChange}></input>
